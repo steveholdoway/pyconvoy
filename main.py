@@ -27,7 +27,7 @@ def unique(list1):
 
 def Convoy( data ):
     print ( "Convoy" )
-    #return
+    return
 
 #   exit if no data
     if data is None:
@@ -154,3 +154,6 @@ with open (shared.dbupdate, "a") as file:
     file.write ( "UPDATE Merchant_movements SET DEP_DATE = str_to_date ( Departure_date, '%d/%m/%y' );\n" )
     file.write ( "UPDATE Merchant_movements SET ARR_DATE = date_sub(ARR_DATE, interval 100 year) WHERE year(ARR_DATE) > 2000;\n" )
     file.write ( "UPDATE Merchant_movements SET DEP_DATE = date_sub(DEP_DATE, interval 100 year) WHERE year(DEP_DATE) > 2000;\n" )
+    file.write ( "UPDATE Convoy_detail SET arr_date = date_sub(arr_date, interval 100 year) WHERE year(arr_date) > 2000;\n" )
+    file.write ( "UPDATE Convoy_detail SET dep_date = date_sub(dep_date, interval 100 year) WHERE year(dep_date) > 2000;\n" )
+
